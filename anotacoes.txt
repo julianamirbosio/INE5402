@@ -1,0 +1,238 @@
+#if/else
+
+a = float(input())
+b = float(input())
+c = float(input())
+m = (a+b+c)/3
+
+if m>= 6 ::
+	print("%.2f Aprovado" % (m))
+elsif m>= 3.5:
+	print("%.2f Recuperação" % (m))
+else:
+	print("%.2f Reprovado" % (m))
+
+# Operadores Relacionais 
+>= (maior igual)
+<= (menor igual)
+== (igual a)
+!= (diferente)
+
+# Operadores Lógicos
+and (e)
+or (ou)
+not (não)
+
+Exemplo
+a = true 
+b = false 
+c = not b
+d = a and b 
+e = a or b and c 
+f = (a or b) and not (c or d)
+
+# Estrututras de Repetição
+for // while 
+
+for i in range(1,11,x):
+	print (i)
+*o looping para na posição anterior ao 11, ou seja, o 10 
+* o ultimo parametro(opcional = x) sera o tamanho do incremento, se não for declarado será 1.
+
+
+|i = 1
+|while i <= 10:
+|	print(i)
+|	i = i + 1
+
++=  faz a soma de alor imposto e inclui na variável anterior
+
+-= faz a diferença de um novo valor imposto e inclui na variável anterior
+
+while True: (testa se a condição é verdadeira, se for falsa o looping se encerra)
+
+break (quebra um looping)
+
+Variável coringa (_): pode ser utilizada caso não haja necessidade de acessar o valor da variável, em uma repetição de looping por exemplo.
+
+As instruções try, except permitem tratar exceções em Phon, isto é, erros que ocorrem em tempo de execução.
+Neste caso, ao tentar ler a entrada e não houver dados para ler averá um erro do tipo EOFError
+	try:
+	except EOFError:
+	break
+
+
+Vetores: 
+
+.append() (adiciona um elemento ao final da lista do vetor)
+.insert() (adiciona um elemento na posição 0 do vetor)
+.remove() (remove um elemento)
+.clear() (remove TODOS os elementos)
+.pop() (retorna um elemento e o remove em seguida)
+
+
+Strings: docs.python.org (bibliotecas de strings em python)
+
+Converter str para lista:
+str = list(str)
+
+Converter lista de volta para string:
+str = "".join(list)
+
+Função lower: converte todos os caracteres para minusculo, precisa ser atribuida a uma variavel
+a = a.lower()
+
+Função upper: converte todos os caracteres para maiusculo, precisa ser atribuida a uma variavel
+a = a.upper()
+
+Função strip: remove os espaços antes e depois da string
+a = a.strip()
+
+Os sinais de > (maior) e < (menor) comparam strings no sentido de ordem lexicográfica na tabela ASCCI.
+ex: A < a (A vem antes na tabela, portanto tem uma posição menor que a)
+ex: abacaxi < uva
+
+Char e ord: retorna o caracterer ASCCI correspondente
+chr(107) = k
+ord(k) = 107
+
+Concatenação de strings:
+
+print("ju" + "liana")
+>>> juliana 
+
+print("BBB%dBBB" %(46))
+>>> BBB46BBB
+
+
+Matrizes:
+
+#como criar uma matriz:
+
+|mat = [None] * 4
+|for i in range(4):
+|	mat[i] = [None] * 3
+
+
+#cria uma matriz de numeros de 1 a 12
+
+|x = 1
+|for i in range(4):
+|	for j in range(3):
+|		mat[i][j] = x
+|		x += 1
+
+
+#imprime cada elemento seguido de espaço 
+
+|for i in range(len(mat)):
+|	for j in range(len(mat[i])):
+|		print("%2d " %(mat[i][j], end=' ')
+|	print("") #pula linha
+
+
+#pedir ao usuário as linhas(n) e as colunas(m) e depois pedir para ele completar a matriz:
+
+|mat = [ None ] * n
+|	for i in range (0 , n ):
+|		mat [i ] = input (). split ()
+|		for j in range (0 , m ):
+|			mat [i ][ j] = int( mat [ i ][ j ])
+
+
+#percorrer uma matriz e calcular a média dos elementos:
+
+|soma = 0
+|for i in range (0 , n ):
+|	for j in range (0 , m ):
+|		soma += mat [i ][ j]
+|print (" %.2 f" % ( soma / (n*m )))
+
+
+#Dicionários 
+Podem usar qualquer tipo imutável de dados como índice e não apenas números inteiros
+Pode-se assumir que não há ordem nas chaves.
+
+d = {} # inicializa o dicionario
+
+d['um'] = 1 # adiciona uma chave no dicionário
+
+d = {"um":1, "dois":2, "tres":3} # inicializa o dicionário ja com as chaves
+
+del(d['dois']) # deleta a chave escolhida do dicionário
+
+len(d) # retorna o valor inteiro da quantidade de chaves no dicionario
+
+# dicionarios são muito uteis para contagem de elementos, como quantos elementos tem repetidos
+
+# Percorrimento: (Não funciona com o range)
+|v = {"um":1, "dois":2, "tres":3}
+|for chave in v.keys():
+|	print("%s mapeia para %d" (chave, v[chave])
+
+>>> um mapeia para 1 [...]
+
+#Funções e Procedimentos 
+Funções possuem retorno mas procedimentos não
+
+*função soma:
+|def soma(x,y):
+|	return x + y
+
+*procedimento soma:
+|def soma(x,y):
+|	print(x + y)
+
+*funções recursivas:
+Possuem base da recursao e passo recursivo. Exemplo:
+
+--Função fatorial:
+|def fatorial(x):
+|	if x == 0:
+|		return 1
+|	return x * fatorial(x-1)
+
+--Função para buscar um valor x em um vetor:
+|def busca(vetor, i, x):
+|	if i >= len(v):
+|		return False
+|	if v[i] == x:
+|		return True
+|	return busca(vetor, i+1, x)
+Base da recursão: quando i estiver apontando para fora do vetor ou quando v[i] for igual ao elemento procurado
+Passo recursivo: buscar o valor x nas demais posições do vetor, a partir de i+1
+
+--Função para descobrir se um número é primo:
+|def ehPrimo(n):
+|	if (n == 1): return False
+|	elif (n == 2): return True
+|	elif (n%2 == 0): return False
+|	for k in range(3, math.floor(math.sqrt(n)) + 1, 2):
+|		if (n%k == 0): return False
+|	return True
+
+--Função para definir uma Sequencia Fibonacci de 1 a n: Técnica de memorização (mais eficiente)
+|def fib(n):
+|	if n <= 2:
+|		return 1
+|	if n not in memo:
+|		memo[n] = fib(n-1) + fib(n-2)
+|	return memo[n]
+|
+|memo = {}
+|n = int(input())
+|print(0, end=’’)
+|for i in range (1, n):
+|	print("%d" % fib(i), end =’’)
+|print()
+
+====================
+FUNÇOES EM PYTHON:
+
+Função length:
+x[len(x) - len(y): len(x)] é uma operação de fatiamento em x. Ela cria uma nova sequência que consiste em uma parte de x, começando no índice len(x) - len(y) (ou seja, a posição onde os últimos caracteres de x começam) e terminando no índice len(x) (o fim de x).
+x[len(x) - len(y): len(x)] retorna os últimos len(y) caracteres de x
+
+
+
+
